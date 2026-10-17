@@ -15,7 +15,8 @@ Devuelve:
   Forma de entrega: dónde y cómo se entrega el trabajo para poder comprobarlo; si el cliente no lo dijo, no lo supongas
   y anótalo en "Por definir".
   Fuera de alcance: lo que no incluye el trabajo, si se deduce.
-  Por definir: datos que faltan y conviene aclarar entre las partes (por ejemplo presupuesto, plazo o accesos).
+  Por definir: solo datos concretos que faltan y que las partes deben aclarar antes de empezar (por ejemplo
+  presupuesto, plazo o accesos que el texto menciona sin detallar). Si no hay ninguno, omite la sección.
   Omite una sección entera si no hay nada fiel que decir en ella; nunca la rellenes con generalidades.
 - amount_mon: monto en MON solo si la solicitud lo menciona; si no, null.
 - days: plazo en días solo si la solicitud lo menciona; si no, null.
