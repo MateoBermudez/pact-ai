@@ -4,6 +4,8 @@ FastAPI + Gemini (Google AI Studio, capa gratuita). **Es únicamente la conexió
 llama al modelo y devuelve una respuesta estructurada y ya validada. El backend de PACT está en el repo `pact-monad`, del
 lado servidor de Next.js, que llama a este servicio con `AI_API_URL`. Aquí no hay estado, base de datos ni blockchain.
 
+Desplegado en Vercel (https://pact-ai-eight.vercel.app); cada push a `main` lo redespliega.
+
 | Endpoint | Entra | Sale |
 |---|---|---|
 | `POST /structure-agreement` | `text`, `file` (PDF, DOCX, imagen o texto en base64), y para ajustar un borrador `previous` + `feedback`; basta con uno | `title`, `description`, `amount_mon`, `days`, `category`, `keywords`, `rules` |
