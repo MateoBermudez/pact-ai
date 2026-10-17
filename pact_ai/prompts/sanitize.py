@@ -1,0 +1,10 @@
+import re
+
+CLOSING_TAGS = re.compile(
+    r"</?\s*(solicitud|archivo|entrega|reglas|requisitos|borrador_actual|cambio_solicitado)\s*>",
+    re.IGNORECASE,
+)
+
+
+def neutralize(text: str) -> str:
+    return CLOSING_TAGS.sub("", text)
