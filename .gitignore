@@ -1,5 +1,7 @@
 .env
+.env.local
 .idea/
 .pytest_cache/
 .venv/
+.vercel/
 __pycache__/
