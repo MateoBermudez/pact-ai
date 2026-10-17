@@ -12,6 +12,11 @@ class ReviewEvidenceIn(BaseModel):
     rules: list[RuleIn] = Field(min_length=1, max_length=12, description="Reglas de aceptación confirmadas")
     provider_note: str = Field(max_length=2000, description="Nota que escribió el proveedor al entregar")
     evidence_url: str = Field(max_length=512, description="Enlace de la entrega; no se abre, solo se lee el texto")
+    evidence_text: str | None = Field(
+        default=None,
+        max_length=30000,
+        description="Contenido de texto de la entrega (texto escrito o archivo de texto); es lo único de la entrega que se lee entero",
+    )
 
 
 class RuleResultOut(BaseModel):

@@ -9,7 +9,7 @@ async def review_evidence(body: ReviewEvidenceIn, settings: Settings) -> ReviewE
     generation = await generate(ReviewDraft, REVIEW_SYSTEM, [review_prompt(body)], settings.review_timeout_seconds)
     draft = generation.parsed
 
-    delivery_text = f"{body.provider_note} {body.evidence_url}"
+    delivery_text = f"{body.provider_note} {body.evidence_url} {body.evidence_text or ''}"
     return ReviewEvidenceOut(
         summary=draft.summary.strip()[:2000] or "Sin resumen",
         results=verify_results(body.rules, draft.results, delivery_text),

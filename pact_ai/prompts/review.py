@@ -7,9 +7,15 @@ REVIEW_SYSTEM = load_system_prompt("review")
 
 def review_prompt(data: ReviewEvidenceIn) -> str:
     rules = "\n".join(f"{rule.position}. (peso {rule.weight}) {neutralize(rule.criterion)}" for rule in data.rules)
+    content = (
+        f"\n\n<contenido_entrega>\n{neutralize(data.evidence_text)}\n</contenido_entrega>"
+        if data.evidence_text and data.evidence_text.strip()
+        else ""
+    )
     return (
         f"<requisitos>\n{neutralize(data.requirements)}\n</requisitos>\n\n"
         f"<reglas>\n{rules}\n</reglas>\n\n"
         f"<entrega>\nNota del proveedor: {neutralize(data.provider_note) or '(sin nota)'}\n"
         f"Enlace: {neutralize(data.evidence_url)}\n</entrega>"
+        f"{content}"
     )

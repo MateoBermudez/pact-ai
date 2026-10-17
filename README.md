@@ -9,7 +9,7 @@ Desplegado en Vercel (https://pact-ai-eight.vercel.app); cada push a `main` lo r
 | Endpoint | Entra | Sale |
 |---|---|---|
 | `POST /structure-agreement` | `text`, `file` (PDF, DOCX, imagen o texto en base64), y para ajustar un borrador `previous` + `feedback`; basta con uno | `title`, `description`, `amount_mon`, `days`, `category`, `keywords`, `rules` |
-| `POST /review-evidence` | `requirements`, `rules`, `provider_note`, `evidence_url` | `summary`, `results` (por regla: `met`, `reasoning`, `evidence_excerpt`), `model` |
+| `POST /review-evidence` | `requirements`, `rules`, `provider_note`, `evidence_url`, `evidence_text` (opcional, hasta 30.000 caracteres: el texto de la entrega, que la IA lee entero y puede citar) | `summary`, `results` (por regla: `met`, `reasoning`, `evidence_excerpt`), `model` |
 | `POST /screen-applicant` | `listing`, `applicant` (perfil, habilidades, portafolio, reputación), `proposal`, `client_preferences` | `verdict` (`accept`, `review`, `reject`), `score` 0-100, `summary`, `strengths`, `concerns`, `model` |
 | `GET /health` | — | `{"status": "ok"}` |
 
