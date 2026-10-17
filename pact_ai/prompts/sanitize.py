@@ -1,7 +1,7 @@
 import re
 
 CLOSING_TAGS = re.compile(
-    r"</?\s*(solicitud|archivo|entrega|reglas|requisitos|borrador_actual|cambio_solicitado)\s*>",
+    r"</?\s*(solicitud|archivo|entrega|reglas|requisitos|borrador_actual|cambio_solicitado|oportunidad|candidato|propuesta|criterios_del_cliente)\s*>",
     re.IGNORECASE,
 )
 

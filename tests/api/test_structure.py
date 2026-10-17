@@ -151,3 +151,12 @@ def test_a_draft_without_the_change_is_not_enough(client: TestClient, fake: Fake
     assert client.post("/structure-agreement", json={"previous": previous}).status_code == 422
     assert client.post("/structure-agreement", json={"previous": previous, "feedback": "  "}).status_code == 422
     assert fake.calls == []
+
+
+def test_the_structure_prompt_asks_for_a_detailed_document_with_search_keywords() -> None:
+    from pact_ai.prompts import STRUCTURE_SYSTEM
+
+    assert "1.200 y 3.500 caracteres" in STRUCTURE_SYSTEM
+    assert "Alcance y entregables" in STRUCTURE_SYSTEM and "Por definir" in STRUCTURE_SYSTEM
+    assert "de 8 a 15 palabras clave" in STRUCTURE_SYSTEM
+    assert "1 a 3 frases" not in STRUCTURE_SYSTEM

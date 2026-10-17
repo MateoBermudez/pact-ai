@@ -18,6 +18,7 @@ class Settings:
     max_text_file_chars: int
     structure_timeout_seconds: float
     review_timeout_seconds: float
+    screening_timeout_seconds: float
 
 
 def get_settings() -> Settings:
@@ -32,4 +33,5 @@ def get_settings() -> Settings:
         max_text_file_chars=int(os.environ.get("MAX_TEXT_FILE_CHARS", "20000")),
         structure_timeout_seconds=float(os.environ.get("STRUCTURE_TIMEOUT_SECONDS", "40")),
         review_timeout_seconds=float(os.environ.get("REVIEW_TIMEOUT_SECONDS", "25")),
+        screening_timeout_seconds=float(os.environ.get("SCREENING_TIMEOUT_SECONDS", "25")),
     )
